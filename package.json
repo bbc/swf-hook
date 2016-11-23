@@ -1,0 +1,47 @@
+{
+  "name": "swf-hook",
+  "version": "1.0.0",
+  "description": "A Node.js library and AWS Lambda to kickstart a workflow from a payload and to track its progress.",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.3"
+  },
+  "dependencies": {
+    "apex.js": "^2.0.0",
+    "uuid": "^2.0.3"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.6.11",
+    "chai": "^3.5.0",
+    "changelog": "^1.0.7",
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2",
+    "nyc": "^9.0.1",
+    "rewire": "^2.5.2",
+    "sinon": "^1.17.6"
+  },
+  "scripts": {
+    "test": "nyc mocha tests/*.js",
+    "posttest": "eslint *.js ./lib",
+    "version": "changelog && git add CHANGELOG.md"
+  },
+  "repository": "github.com:bbc/swf-hook",
+  "nyc": {
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ]
+  },
+  "keywords": [
+    "swf",
+    "lambda",
+    "webhook"
+  ],
+  "author": "Thomas Parisot (https://oncletom.io)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/bbc/swf-hook/issues"
+  },
+  "homepage": "https://github.com/bbc/swf-hook#readme"
+}

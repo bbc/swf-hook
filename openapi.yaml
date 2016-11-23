@@ -1,0 +1,70 @@
+---
+swagger: "2.0"
+info:
+  version: "2016-11-17T16:45:13Z"
+schemes:
+- "https"
+paths:
+  /analyse:
+    post:
+      consumes:
+      - "application/json"
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      responses:
+        202:
+          description: "202 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      x-amazon-apigateway-integration:
+        requestTemplates:
+          application/json: "$input.json('$')\n"
+          application/x-www-form-urlencoded: "\"$input.body\""
+        responses:
+          default:
+            statusCode: "202"
+        passthroughBehavior: "when_no_templates"
+        httpMethod: "POST"
+        type: "aws"
+  /analyse/{workflowId}:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "runId"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "workflowId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      x-amazon-apigateway-integration:
+        requestTemplates:
+          application/json: "#set($allParams = $input.params())\n{\n  \"workflowId\"\
+            : \"$util.escapeJavaScript($allParams.path.get('workflowId'))\",\n  \"\
+            runId\": \"$util.escapeJavaScript($allParams.querystring.get('runId'))\"\
+            \n}\n"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_templates"
+        httpMethod: "POST"
+        type: "aws"
+
+
+definitions:
+  Empty:
+    type: "object"
