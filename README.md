@@ -189,6 +189,19 @@ The content of the lambda `event` argument will be passed to the `activities` fu
 
 It is mandatory to pass an object which contains the `workflowId` and `runId` keys — given out as the response of the `create` method.
 
+
+# Contribute & Release
+
+Nothing much is required to contribute to the project aside of sharing your good mood and to follow the [angular git commit convention][angular-commit-convention]. That's it!
+
+To release a new version, run the following command:
+
+```bash
+npm run release -- 1.0.2
+```
+
+It will generate a new git tag and an updated CHANGELOG.
+
 # License
 
     Licensed to the Apache Software Foundation (ASF) under one
@@ -208,6 +221,7 @@ It is mandatory to pass an object which contains the `workflowId` and `runId` ke
     specific language governing permissions and limitations
     under the License.
 
+[angular-commit-convention]: https://github.com/conventional-changelog/conventional-changelog-angular/blob/master/convention.md
 [aws-lambda]: https://aws.amazon.com/lambda/details/
 [aws-lambda-rules]: https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html#env_limits
 [aws-ag]: https://aws.amazon.com/api-gateway/details/
