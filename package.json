@@ -13,8 +13,8 @@
   "devDependencies": {
     "aws-sdk": "^2.6.11",
     "chai": "^3.5.0",
-    "changelog": "^1.0.7",
     "eslint": "^3.8.1",
+    "git-changelog": "^1.0.1",
     "mocha": "^3.1.2",
     "nyc": "^9.0.1",
     "rewire": "^2.5.2",
@@ -23,9 +23,12 @@
   "scripts": {
     "test": "nyc mocha tests/*.js",
     "posttest": "eslint *.js ./lib",
-    "version": "changelog && git add CHANGELOG.md"
+    "version": "git-changelog && git add CHANGELOG.md"
   },
-  "repository": "github.com:bbc/swf-hook",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bbc/swf-hook.git"
+  },
   "nyc": {
     "check-coverage": true,
     "reporter": [
