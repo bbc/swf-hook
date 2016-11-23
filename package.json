@@ -1,6 +1,6 @@
 {
   "name": "swf-hook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Node.js library and AWS Lambda to kickstart a workflow from a payload and to track its progress.",
   "main": "index.js",
   "engines": {
